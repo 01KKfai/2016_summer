@@ -1,0 +1,88 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document</title>
+</head>
+<body>
+<img src = "辉辉辉啊.jpg"/>
+<script>
+    alert(document.images[0].src)
+    for(x in document)
+        document.write(x+"<br/>")
+
+</script>
+</body>
+</html>
+
+-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document</title>
+</head>
+<body>
+
+                                                      <a href="#here">网易新闻</a>
+                                                      <p id= 'here'>
+                                                       点“网易新闻”会跳到这个段落的内容    //对id的使用，HTML所有的标签都可以
+                                                      </p>
+
+<p id="p1">
+</p>
+<script>
+    alert(document.getElementsById("p1"));
+</script>
+</body>
+</html>
+
+-->
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document</title>
+</head>
+<body onLoad="setInterval('show()',250)">
+<img name="anm" width=400 src="0.jpg"/>
+<script>
+    var images = new Array(6);
+    var index = 1;
+    for (var i = 0; i < 6; i++) {
+        images[i] = new Image();         //创建Image对象来提前装载图片
+        images[i].src = i + ".jpg";      //images 对象的src可以改写以装入一副新的图片
+    }
+    function show() {
+        document.anm.src = images[index].src;
+        index = (index + 1) % 6;
+    }
+
+</script>
+</body>
+</html>
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document</title>
+</head>
+<body onLoad="setInterval('show()',250)">
+<img name="anm" width=400 src="0.jpg"/>
+<script src="document.js">
+                                        //插入document 的js文件即可跟上面的document.html文件显示一样的效果
+</script>
+</body>
+</html>
+

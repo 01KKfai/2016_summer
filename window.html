@@ -1,0 +1,188 @@
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>       //浏览器的全局对象是window，所有的全局变量实际上是window的成员
+</head>
+<body>
+<script>
+for (x in window.document)    //这里的window 可以去掉
+document.write(x+"<br/>");  //页面中的元素就是document里的成员
+</script>
+</body>
+</html>
+-->
+
+
+
+
+<!-- 事件处理器    //类似的 还有onMouseClick onMouseDblclick。。。  onMouseonSubmit<用于表单>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+</head>
+<body>
+<script>
+</script>
+<p onMouseOver = "alert('hi');" onMouseOut = "alert('bye');">
+    这是一个段落
+</p>
+</body>
+</html>
+
+ -->
+
+
+
+<!--
+
+  //简单对话框： confirm、alert 、prompt
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+</head>
+<body>
+<script>                                      // body事件：  onLoad 、onUnLoad
+   if (confirm ("继续吗??")){
+       alert("Yes!");
+       var name = prompt("Input your name:");
+       alert(name+"，你好帅！！");
+   }
+    else{
+       alert("OK，byebye");
+   }
+</script>
+</body>
+</html>
+
+-->
+
+
+
+<!--  状态栏： status、defaultStatus (window的变量）
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>       //浏览器的全局对象是window，所有的全局变量实际上是window的成员
+</head>
+<body>
+<script>
+</script>
+<p onMouseOver="status= '网易云学习';"
+   onMouseOut="status=' ';">
+    哈哈哈，点我点我！                    //shenmegui??? win10出不来效果？状态栏都找不着
+</body>
+</html>
+
+-->
+
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+    <script>
+        var status;
+        var count=10;
+        function update(){
+            if (count>= 0)
+            status=count--;            //10、9、8、7、、、0
+        }
+    </script>
+</head>
+<body onLoad="setInterval('update()',1000);">           //setInterval定时器,,status 出不来效果。同上。
+</body>
+</html>
+
+
+-->
+
+
+<!--
+
+window的控制方法
+window.open()
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+    <script>
+    </script>
+</head>
+<body>
+<script>
+    var w=open("small.html","small","width=400,height=300,resizable=yes");   //resizable默认可调节大小
+</script>
+</body>
+</html>
+
+-->
+
+
+<!--
+
+window的控制方法
+window.close();
+w.close();
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+    <script>
+        function guanbi(){
+            w.close();
+        }
+    </script>
+</head>
+<body onLoad="setInterval('guanbi()',2000);">                //2s后新开的窗口关闭
+<script>
+    var w=open("small.html","small","width=400,height=300");   //resizable默认可调节大小
+</script>
+</body>
+</html>
+
+-->
+
+
+<!--
+
+Location对象：
+window.location代表当前文档的URL，（可读）
+alert(location);
+location="http://study.163.com";   （可改写，跳转）
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+    <script>
+        function jump(){
+         window.location="http://study.163.com";       //2s后跳转的新页面
+        }
+    </script>
+</head>
+<body onLoad="setInterval('jump()',2000);">
+</body>
+</html>
+
+-->

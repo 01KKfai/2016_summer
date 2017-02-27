@@ -1,0 +1,182 @@
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array数组</title>
+    <script>
+
+    </script>
+</head>
+<body>
+<script>
+    var colors= ["red", "blue", "green"];
+    alert(colors[0]);           //red
+    alert(colors[2]);          //green
+    alert(colors[3]);          //undefined
+
+    colors[2] = "black";
+    colors[3] = "brown";
+    colors[100] = "cyan";
+    alert(colors[0]);           //red
+    alert(colors[2]);          //black
+    alert(colors[3]);          //brown
+    alert(colors[100]);        //cyan
+    alert(colors[99]);        //undefined
+</script>
+</body>
+</html>
+
+-->
+
+
+<!--数组长度： a.length，给出数组a的长度，是其中最大的下标+1
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array数组</title>
+    <script>
+
+    </script>
+</head>
+<body>
+<script>
+    var colors= ["red", "blue", "green"];
+    var names=[];
+    alert("colors.length="+colors.length);        // 3
+    alert("names.length="+names.length);        // 0
+
+    colors[4]="brown";
+    alert("colors.length="+colors.length);     // 5   !!!不是4
+</script>
+</body>
+</html>
+
+-->
+
+
+
+ <!--
+ .length 可写
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Array数组</title>
+ <script>
+
+ </script>
+</head>
+<body>
+<script>
+ var colors= ["red", "blue", "green"];
+ colors.length=2;      //掐掉了
+ alert(colors[2]);     //undefined
+ colors.length=4;      //变长了
+ alert(colors[3]);     //undefined
+ colors.length=2;
+ colors.length=3;                     //先掐掉，再补回来
+ alert(colors[2]);       //undefined
+</script>
+</body>
+</html>
+
+-->
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Array数组</title>
+ <script>
+
+ </script>
+</head>
+<body>
+<script>
+ var colors= ["red", "blue", "green"];
+ colors[colors.length]="black";         //可扩展性代码!!  colors.length = 3
+ colors[colors.length]="brown";        //colors.length = 4
+ alert(colors[4]);       //brown
+</script>
+</body>
+</html>
+
+-->
+
+
+<!--
+
+转换数组为字符串 ：
+
+var colors=["red","blue","green"];
+alert(colors.toString());
+alert(colors.valueOf());
+alert(colors);                   //输出所有的数组元素
+
+alert(colors.join(","));
+alert(colors.join("||"));     //用于分隔
+
+-->
+
+
+堆栈操作：
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Array数组</title>
+ <script>
+
+ </script>
+</head>
+<body>
+<script>
+ var color = new Array();
+ var count=colors.push("red","green");
+alert(count);
+ count=colors.push("black");
+ alert(count);
+ var item=colors.pop();
+ alert(item);
+ alert(colors.length);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

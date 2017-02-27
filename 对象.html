@@ -1,0 +1,248 @@
+<!--
+
+创建对象：var o=new Object();
+           var circle={x:0,x:0,radius:2};
+
+访问对象属性： var book=new Object();
+                book.title="HTML5秘籍";
+                book.translator="李";
+                book.chapter1=new Object();
+                book.chapter1.title="HTML5简介"
+               （即使构造时不存在的属性，也可以在今后随便增加）
+
+删除对象属性： delete book.chapter1;  或   book.chapter1=null;
+
+遍历所有属性：
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+</head>
+<body>
+<script>
+    var o=new Object();
+    o.name="Andy";
+    o.age=30;
+    o.salary=3000;
+    for (var x in o){
+        alert (x+"="+o[x]);   //访问方式：o[x] ，访问对象里面每个属性的值
+    }
+</script>
+</body>
+</html>
+
+
+-->
+
+
+<!-- 构造方法：构造函数
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <script>
+function Rect(w,h){                         //除了这个构造方法，还有其他的方法构造JS的对象。
+    this.width=w; this.height=h;
+    this.area=function(){
+        return this.width*this.height;    // 或  return w*h;
+    }
+}
+    </script>
+</head>
+<body>
+<script>
+var r=new Rect(5,10);
+    alert("area="+ r.area());    // 50
+r.width=10;
+    alert("area="+r.area());     // 100
+</script>
+</body>
+</html>
+
+
+-->
+
+
+<!--原型对象（prototype）：
+1.对象的prototype属性指定了他的原型对象，可运用“ .运算符”直接读它的原型对象的属性。
+2.当写这个属性时，才在它自己的内部产生实际的属性。
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <script>
+function Person(){
+    Person.prototype.name="Nicholas";
+    Person.prototype.age=29;
+    Person.prototype.job="Software Engineer";
+    Person.prototype.SayName=function(){
+        alert(this.name);
+    };
+}
+    </script>
+</head>
+<body>
+<script>
+    var person1=new Person();
+    person1.SayName();     //Nicholas
+    var person2=new Person();
+    person2.SayName();    //Nicholas
+    alert(person1.SayName==person2.SayName);  //true     （同在原型里不经修改，共享）
+</script>
+</body>
+</html>
+
+ -->
+
+
+
+<!--  稍微改动一下：
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <script>
+        function Person() {
+            Person.prototype.name = "Nicholas";
+            Person.prototype.age = 29;
+            Person.prototype.job = "Software Engineer";
+            /*
+            Person.prototype.SayName=function() {
+                alert(this.name);
+            }
+            */
+        }
+    </script>
+</head>
+<body>
+<script>
+    var person1=new Person();               //稍微改动一下：
+    var person2=new Person();
+    person1.name="Greg";
+    alert(person1.name);                //"Greg"        (from instance)
+    alert(person2.name);                //"Nicholas"    (from prototype)
+    alert(person1.name==person2.name);   //false
+</script>
+</body>
+</html>
+
+-->
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <script>
+        function Person(){}
+            Person.prototype={
+                Constructor:Person,
+                name:"Nicholas",
+                job:"Software Engineer",
+                friends:["Shelby","Court"],
+                SayName:function(){
+                    alert(this.name);
+                }
+            };
+    </script>
+</head>
+<body>
+<script>
+    var person1=new Person();
+    var person2=new Person();
+    person1.friends.push("Van");   //没有作赋值，还有原来的friends 也 .push进去
+    alert(person1.friends);     //Shelby,Court,Van
+    alert(person2.friends);     //Shelby,Court,Van     。。。不希望共享，咋办？
+</script>
+</body>
+</html>
+
+-->
+
+
+
+<!--
+组合原型对象和构造方法：
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <script>
+        function Person(name,age,job){                  //不共享
+            this.name=name;
+            this.age=age;
+            this.job=job;
+            this.friends=["Shelby","Court"];
+        }
+        Person.prototype={                            //对象里面的这部分共享
+            Constructor:Person,
+            SayName:function(){
+                alert(this.name);
+            }
+        };
+    </script>
+</head>
+<body>
+<script>
+    var person1=new Person("Nicholas",29,"Software Engineer");
+    var person2=new Person("Greg",27,"Doctor");
+    person1.friends.push("Van");
+    alert(person1.friends);     //Shelby,Court,Van
+    alert(person2.friends);     //Shelby,Court
+    alert(person1.friends===person2.friends);       //false
+    alert(person1.SayName===person2.SayName);       //true
+</script>
+</body>
+</html>
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
